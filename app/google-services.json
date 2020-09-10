@@ -1,0 +1,107 @@
+{
+  "project_info": {
+    "project_number": "415545499260",
+    "firebase_url": "https://jinlog-910a1.firebaseio.com",
+    "project_id": "jinlog-910a1",
+    "storage_bucket": "jinlog-910a1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415545499260:android:b0842aadd5b4474c0473f9",
+        "android_client_info": {
+          "package_name": "com.igalogs.jinlog"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415545499260-p2r5tf9senpkbhubedhnkiffvlmet1rf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.igalogs.jinlog",
+            "certificate_hash": "09f10c42e10d78a0e85d9d003033ec39518b8607"
+          }
+        },
+        {
+          "client_id": "415545499260-l7nu5gufmh61n88crore62fr89rbm6qi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.igalogs.jinlog",
+            "certificate_hash": "57791a64ffbb8fb7052e74ceab171bfe49acea1b"
+          }
+        },
+        {
+          "client_id": "415545499260-3utmdhme26b10to5nhhcogfbcsbue4aq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmAQSi5f3KU96PX5Ahy5sTUVr-zM5vm8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415545499260-3utmdhme26b10to5nhhcogfbcsbue4aq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "415545499260-frkvcf939plhmc9s83p6h1bhqpumbjb4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.igalogs.jinlog"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415545499260:android:37569ecbc69e09750473f9",
+        "android_client_info": {
+          "package_name": "com.igalogs.jinlog2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415545499260-5jv6r8cuc478u43nfcpmjfbn2pmjl50h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.igalogs.jinlog2",
+            "certificate_hash": "57791a64ffbb8fb7052e74ceab171bfe49acea1b"
+          }
+        },
+        {
+          "client_id": "415545499260-3utmdhme26b10to5nhhcogfbcsbue4aq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmAQSi5f3KU96PX5Ahy5sTUVr-zM5vm8U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415545499260-3utmdhme26b10to5nhhcogfbcsbue4aq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "415545499260-frkvcf939plhmc9s83p6h1bhqpumbjb4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.igalogs.jinlog"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
