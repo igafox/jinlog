@@ -1,4 +1,4 @@
-package com.mugeden.jinlog.data.entity
+package com.igalogs.jinlog.data.model
 
 import com.google.firebase.firestore.Exclude
 import com.google.firebase.firestore.GeoPoint
@@ -11,12 +11,13 @@ import java.util.*
  */
 
 data class Place(
-    var id: String?,
-    var state: String?,
-    var city: String?,
-    var street: String?,
-    var latitude: Double?,
-    var longitude: Double?,
-    var location: GeoPoint?,
-    var geohash: String?
+    var id: String = "",
+    var name: String = "",
+    var state: String = "",
+    var city: String = "",
+    var street: String = "",
+    var latitude: Double = 0.0,
+    var longitude: Double = 0.0,
+    var location: GeoPoint? = null,
+    var geohash: String = ""
 )

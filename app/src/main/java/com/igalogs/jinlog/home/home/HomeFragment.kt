@@ -34,7 +34,10 @@ class HomeFragment : Fragment() {
   override fun onActivityCreated(savedInstanceState: Bundle?) {
     super.onActivityCreated(savedInstanceState)
     setupList()
+    setupViewModelObseve()
+  }
 
+  private fun setupViewModelObseve() {
     homeViewModel.logs.observe(viewLifecycleOwner, Observer { logs ->
       itemController.setData(logs)
     })
