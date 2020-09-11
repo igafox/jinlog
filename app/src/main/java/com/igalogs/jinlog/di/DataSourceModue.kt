@@ -3,6 +3,8 @@ package com.igalogs.jinlog.di
 import com.google.firebase.firestore.FirebaseFirestore
 import com.igalogs.jinlog.data.log.FirestoreLogDataSource
 import com.igalogs.jinlog.data.log.LogDataSource
+import com.igalogs.jinlog.data.place.FirestorePlaceDataSource
+import com.igalogs.jinlog.data.place.PlaceDataSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,6 +19,12 @@ class DataSourceModue {
     @Singleton
     fun provideFirebaseLogDataSouce(firestore: FirebaseFirestore): LogDataSource {
         return FirestoreLogDataSource(firestore)
+    }
+
+    @Provides
+    @Singleton
+    fun provideFirebasePlaceDataSouce(firestore: FirebaseFirestore): PlaceDataSource {
+        return FirestorePlaceDataSource(firestore)
     }
 
 }

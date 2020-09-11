@@ -65,16 +65,6 @@ android {
         implementation 'com.google.android.gms:play-services-auth:18.1.0'
         compileOnly 'com.google.android.wearable:wearable:2.5.0'
 
-//        def koin_version = '2.1.6'
-//        //Koin
-//        implementation "org.koin:koin-core:$koin_version"
-//        implementation "org.koin:koin-core-ext:$koin_version"
-//        testImplementation "org.koin:koin-test:$koin_version"
-//        implementation "org.koin:koin-androidx-scope:$koin_version"
-//        implementation "org.koin:koin-androidx-viewmodel:$koin_version"
-//        implementation "org.koin:koin-androidx-fragment:$koin_version"
-//        implementation "org.koin:koin-androidx-ext:$koin_version"
-
         def epoxy_version = "3.7.0"
         implementation "com.airbnb.android:epoxy:$epoxy_version"
         implementation "com.airbnb.android:epoxy-databinding:${epoxy_version}"
@@ -98,6 +88,8 @@ android {
         kapt 'com.github.bumptech.glide:compiler:4.11.0'
 
         implementation 'com.firebaseui:firebase-ui-storage:4.1.0'
+
+        implementation "ch.hsr:geohash:1.4.0"
 
     }
 

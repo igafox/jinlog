@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_shrine_map"
-        android:name="com.igalogs.jinlog.home.serch.ShrineMapFragment"
+        android:name="com.igalogs.jinlog.home.map.ShrineMapFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_shrine_map" />
 
