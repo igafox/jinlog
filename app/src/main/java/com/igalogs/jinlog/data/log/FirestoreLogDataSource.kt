@@ -3,9 +3,9 @@ package com.igalogs.jinlog.data.log
 import com.google.firebase.firestore.FirebaseFirestore
 import com.igalogs.jinlog.data.Result
 import com.igalogs.jinlog.data.model.Log
-import com.igalogs.jinlog.ext.await
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
 

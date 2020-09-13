@@ -16,32 +16,66 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:background="@color/accent"
-        android:padding="8dp">
+        android:background="@color/white"
+        android:padding="12dp">
 
-        <ImageView
-            android:id="@+id/imageView"
+        <FrameLayout
+            android:id="@+id/image_frame"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            tools:src="@drawable/nagatoko"
-            app:layout_constraintDimensionRatio="h,3:4"
+            app:layout_constraintDimensionRatio="h,1:1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/image_background"
+                android:padding="12dp"
+                android:src="@drawable/ic_torii"
+                app:tint="@color/disabled_text" />
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                gcsPath="@{data.imagePath}"/>
+
+        </FrameLayout>
 
         <TextView
             android:id="@+id/tvPlaceName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
             android:includeFontPadding="false"
             android:text="@{data.name}"
             android:textColor="@color/primary_text"
             android:textSize="16sp"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/image_frame"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="8dp"
             tools:text="新宮熊野神社" />
+
+        <TextView
+            android:id="@+id/place_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="@{data.state + data.city + data.street}"
+            app:layout_constraintStart_toStartOf="@+id/tvPlaceName"
+            app:layout_constraintTop_toBottomOf="@+id/tvPlaceName"
+            tools:text="福島県喜多方市" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:src="@drawable/ic_baseline_map_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:tint="@color/accent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

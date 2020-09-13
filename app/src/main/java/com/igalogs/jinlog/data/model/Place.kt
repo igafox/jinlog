@@ -19,5 +19,6 @@ data class Place(
     var latitude: Double = 0.0,
     var longitude: Double = 0.0,
     var location: GeoPoint? = null,
+    var imagePath:String = "",
     var geohash: String = ""
 )

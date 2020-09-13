@@ -16,6 +16,7 @@
     <color name="divider">#DBDBDB</color>
     <color name="disabled_text">#9B9B9B</color>
     <color name="background">#FAFAFA</color>
+    <color name="image_background">#EEEEEE</color>
 
     <!--reds-->
     <color name="red_50">#FFEBEE</color>

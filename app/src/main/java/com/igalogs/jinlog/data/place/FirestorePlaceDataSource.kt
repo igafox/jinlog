@@ -1,13 +1,16 @@
 package com.igalogs.jinlog.data.place
 
+import android.util.Log.e
 import ch.hsr.geohash.GeoHash
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.FirebaseFirestoreException
+import com.google.firebase.firestore.Source
 import com.igalogs.jinlog.data.Result
 import com.igalogs.jinlog.data.model.Log
 import com.igalogs.jinlog.data.model.Place
-import com.igalogs.jinlog.ext.await
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
 import java.util.*
 
@@ -29,16 +32,13 @@ class FirestorePlaceDataSource(
             val startHash = geohash
             val lastChar = geohash.last()
             val nextChar = lastChar + 1
-
-            val endHash = geohash.substring(0,geohash.length - 1) + nextChar
-            //val endHash = geohash.replaceRange(geohash.length, geohash.length, "a")
-
+            val endHash = geohash.substring(0, geohash.length - 1) + nextChar
 
             val query = placeCollection
                 .whereGreaterThanOrEqualTo("geohash", startHash)
                 .whereLessThan("geohash", endHash)
 
-            val data = query.get().await().toObjects(Place::class.java)
+            var data = query.get(Source.DEFAULT).await().toObjects(Place::class.java)
 
             Result.Success(data)
         } catch (e: Exception) {

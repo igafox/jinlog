@@ -15,15 +15,17 @@ class PlaceDataRepository(
         longitude: Double
     ): Result<List<Place>> {
 
-        if (cacheSource.hasCache(latitude, longitude)) {
-            return cacheSource.getPlacesByLatLong(latitude, longitude)
-        } else {
-            val result = dataSource.getPlacesByLatLong(latitude, longitude)
-            if (result is Result.Success) {
-                cacheSource.putPlacesByLatLng(latitude, longitude, result.data)
-            }
-            return result
-        }
+        return dataSource.getPlacesByLatLong(latitude,longitude)
+
+//        if (cacheSource.hasCache(latitude, longitude)) {
+//            return cacheSource.getPlacesByLatLong(latitude, longitude)
+//        } else {
+//            val result = dataSource.getPlacesByLatLong(latitude, longitude)
+//            if (result is Result.Success) {
+//                cacheSource.putPlacesByLatLng(latitude, longitude, result.data)
+//            }
+//            return result
+//        }
 
     }
 }

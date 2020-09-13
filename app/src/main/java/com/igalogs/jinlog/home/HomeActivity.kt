@@ -1,11 +1,12 @@
 package com.igalogs.jinlog.home
 
+import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.igalogs.jinlog.R
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -27,5 +28,13 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home) {
         )
         //setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        //NavHostFragment下のFragmentに伝搬させる
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment)
+        val childFragments = navHostFragment?.childFragmentManager?.fragments
+        childFragments?.forEach { it.onActivityResult(requestCode, resultCode, data) }
     }
 }

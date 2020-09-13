@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinator_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -15,29 +16,55 @@
     <LinearLayout
         android:id="@+id/bottom_sheet_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="300dp"
+        android:background="@color/white"
+        android:orientation="vertical"
         app:behavior_hideable="true"
-        app:behavior_peekHeight="120dp"
-        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
-        android:orientation="vertical">
+        app:behavior_peekHeight="130dp"
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
         <com.airbnb.epoxy.EpoxyRecyclerView
             android:id="@+id/rv_shrine_list"
             android:layout_width="match_parent"
-            android:background="@color/primary_dark"
             android:layout_height="match_parent" />
 
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_add"
+        android:id="@+id/fab_list"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@android:drawable/ic_dialog_email"
-        app:layout_anchor="@id/bottom_sheet_layout"
-        android:translationY="-44dp"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_baseline_list"
         android:translationX="-16dp"
+        android:translationY="-110dp"
+        app:layout_anchor="@id/bottom_sheet_layout"
         app:layout_anchorGravity="right|top" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:src="@drawable/ic_baseline_near_me"
+        android:translationX="-16dp"
+        android:translationY="-40dp"
+        app:layout_anchor="@id/bottom_sheet_layout"
+        app:layout_anchorGravity="right|top" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/ToolbarTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="検索" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
