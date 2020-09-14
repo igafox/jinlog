@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">jinlog</string>
+    <string name="app_name">JinLog</string>
 
     <string name="authentication_failed">ログイン認証に失敗しました</string>
     <string name="title_activity_splash">SplashActivity</string>

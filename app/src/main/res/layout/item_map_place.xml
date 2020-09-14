@@ -7,6 +7,8 @@
 
         <import type="android.text.format.DateFormat" />
 
+        <import type="com.igalogs.jinlog.util.StreetViewUrl" />
+
         <variable
             name="data"
             type="com.igalogs.jinlog.data.model.Place" />
@@ -35,12 +37,18 @@
                 android:src="@drawable/ic_torii"
                 app:tint="@color/disabled_text" />
 
+<!--            <ImageView-->
+<!--                gcsPath="@{data.imagePath}"-->
+<!--                imageUrl="@{StreetViewUrl.get(data.latitude,data.longitude)"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:scaleType="centerCrop" />-->
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                gcsPath="@{data.imagePath}"/>
+                app:imageUrl="@{StreetViewUrl.get(data.latitude,data.longitude)}"/>
 
         </FrameLayout>
 

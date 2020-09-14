@@ -29,7 +29,6 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.igalogs.jinlog.R
 import com.igalogs.jinlog.data.model.Place
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_shrine_map.*
 import kotlinx.android.synthetic.main.fragment_shrine_map.toolbar
 import kotlinx.coroutines.launch
@@ -102,7 +101,7 @@ class ShrineMapFragment : Fragment() {
         locationClient = FusedLocationProviderClient(requireActivity())
 
         setupList()
-        setupMarker()
+        setupViewModelLiveData()
         setupFab()
         setupBottomSheet()
     }
@@ -178,7 +177,7 @@ class ShrineMapFragment : Fragment() {
 
     }
 
-    private fun setupMarker() {
+    private fun setupViewModelLiveData() {
         viewModel.hitPlaces.observe(viewLifecycleOwner, Observer { places ->
             //非表示になったものだけ抽出
             val ignoreMarkers = visibleMarkers.filterValues { place -> !places.contains(place) }
@@ -192,6 +191,13 @@ class ShrineMapFragment : Fragment() {
                     val marker = createPlaceMarker(place)
                     visibleMarkers[marker] = place
                 }
+            }
+        })
+        viewModel.dataLoading.observe(viewLifecycleOwner, Observer {loading ->
+            if(loading) {
+                progress_bar.visibility = View.VISIBLE
+            } else {
+                progress_bar.visibility = View.INVISIBLE
             }
         })
     }
