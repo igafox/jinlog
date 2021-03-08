@@ -34,4 +34,15 @@ class FirestoreLogDataSource(
             }
         }
 
+    override suspend fun getLogsByPlaceId(placeId: String): Result<List<Log>> =
+        withContext(ioDispatcher) {
+            return@withContext try {
+                val query = logCollectionGroup.whereEqualTo("placeId", placeId)
+                val data = query.get().await().toObjects(Log::class.java)
+                Result.Success(data ?: listOf())
+            } catch (e: Exception) {
+                Result.Error(e)
+            }
+        }
+
 }

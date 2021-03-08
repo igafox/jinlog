@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:padding="12dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/ic_torii"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="@color/divider" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:lineSpacingMultiplier="1.2"
+            android:textColor="@color/secondary_text"
+            android:text="@string/empty_log"/>
+
+
+
+        <!--        <FrameLayout-->
+        <!--            android:id="@+id/image_frame"-->
+        <!--            android:layout_width="0dp"-->
+        <!--            android:layout_height="match_parent"-->
+        <!--            app:layout_constraintDimensionRatio="h,1:1"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent">-->
+
+        <!--           -->
+
+        <!--&lt;!&ndash;            <ImageView&ndash;&gt;-->
+        <!--&lt;!&ndash;                gcsPath="@{data.imagePath}"&ndash;&gt;-->
+        <!--&lt;!&ndash;                imageUrl="@{StreetViewUrl.get(data.latitude,data.longitude)"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:layout_width="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+        <!--&lt;!&ndash;                android:scaleType="centerCrop" />&ndash;&gt;-->
+
+        <!--            <ImageView-->
+        <!--                android:layout_width="match_parent"-->
+        <!--                android:layout_height="match_parent"-->
+        <!--                android:scaleType="centerCrop"-->
+        <!--                app:imageUrl="@{StreetViewUrl.get(place.latitude,place.longitude)}"/>-->
+
+        <!--        </FrameLayout>-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/tvPlaceName"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginLeft="8dp"-->
+        <!--            android:layout_marginTop="8dp"-->
+        <!--            android:includeFontPadding="false"-->
+        <!--            android:text="@{place.name}"-->
+        <!--            android:textColor="@color/primary_text"-->
+        <!--            android:textSize="16sp"-->
+        <!--            app:layout_constraintStart_toEndOf="@+id/image_frame"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            tools:text="新宮熊野神社" />-->
+
+        <!--        <TextView-->
+        <!--            android:id="@+id/place_address"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_marginTop="4dp"-->
+        <!--            android:text="@{place.state + place.city + place.street}"-->
+        <!--            app:layout_constraintStart_toStartOf="@+id/tvPlaceName"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/tvPlaceName"-->
+        <!--            tools:text="福島県喜多方市" />-->
+
+        <!--        <ImageView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_margin="4dp"-->
+        <!--            android:src="@drawable/ic_baseline_map_24"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:tint="@color/accent" />-->
+
+    </LinearLayout>
+
+</layout>
+
+

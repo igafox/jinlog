@@ -28,6 +28,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.igalogs.jinlog.R
 import com.igalogs.jinlog.data.model.Place
+import com.igalogs.jinlog.detail.PlaceDetailActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_shrine_map.*
 import kotlinx.android.synthetic.main.fragment_shrine_map.toolbar
@@ -43,26 +44,25 @@ class ShrineMapFragment : Fragment() {
 
     private val viewModel: ShrineMapViewModel by viewModels()
 
+    private lateinit var locationClient: FusedLocationProviderClient
+
     private lateinit var map: GoogleMap
-
-    private lateinit var bottomSheet: BottomSheetBehavior<LinearLayout>
-
-    private val placeListItemController = MapPlaceItemController()
 
     private val visibleMarkers = mutableMapOf<Marker, Place>()
 
-    private lateinit var locationClient: FusedLocationProviderClient
+    private val listItemController by lazy { MapPlaceItemController() }
 
-    //private lateinit var settingClient: SettingsClient
+    private lateinit var bottomSheet: BottomSheetBehavior<LinearLayout>
 
-    private val callback = OnMapReadyCallback { googleMap ->
+    private val onMapReadyCallback = OnMapReadyCallback { googleMap ->
         map = googleMap
-        googleMap.setOnMarkerClickListener(OnMarkerClickListener)
-        googleMap.setOnCameraIdleListener(OnCameraIdleListener)
+        googleMap.setOnMarkerClickListener(onMarkerClickListener)
+        googleMap.setOnCameraIdleListener(onCameraIdleListener)
         setupMapLocationSetting()
     }
 
-    private val OnMarkerClickListener = GoogleMap.OnMarkerClickListener { marker ->
+
+    private val onMarkerClickListener = GoogleMap.OnMarkerClickListener { marker ->
 
         //タッチしたマーカーの情報を表示
         val selectPlace = visibleMarkers[marker]
@@ -73,7 +73,7 @@ class ShrineMapFragment : Fragment() {
         list.removeAt(index)
         list.add(0, selectPlace)
 
-        placeListItemController.setData(list)
+        listItemController.setData(list)
 
         if (bottomSheet.state != BottomSheetBehavior.STATE_COLLAPSED) {
             bottomSheet.state = BottomSheetBehavior.STATE_COLLAPSED
@@ -82,10 +82,18 @@ class ShrineMapFragment : Fragment() {
         return@OnMarkerClickListener true
     }
 
-    private val OnCameraIdleListener = GoogleMap.OnCameraIdleListener {
+    private val onCameraIdleListener = GoogleMap.OnCameraIdleListener {
 
         val latLng = map.cameraPosition.target
         viewModel.onCameraIdel(latLng)
+    }
+
+    private val listListener = object : MapPlaceItemController.Listener {
+        override fun onClickPlace(place: Place) {
+            PlaceDetailActivity.createIntent(requireContext(), place.id).apply {
+                startActivity(this)
+            }
+        }
     }
 
     override fun onCreateView(
@@ -121,8 +129,10 @@ class ShrineMapFragment : Fragment() {
 
 
     private fun setupList() {
+        listItemController.listener = listListener
+
         rv_shrine_list.apply {
-            this.adapter = placeListItemController.adapter
+            this.adapter = listItemController.adapter
             this.addItemDecoration(
                 DividerItemDecoration(
                     requireContext(),
@@ -137,7 +147,7 @@ class ShrineMapFragment : Fragment() {
     private fun setupFab() {
         fab_list.setOnClickListener {
             val list = visibleMarkers.values.toMutableList()
-            placeListItemController.setData(list)
+            listItemController.setData(list)
             bottomSheet.state = BottomSheetBehavior.STATE_EXPANDED
         }
 
@@ -250,7 +260,7 @@ class ShrineMapFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val mapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment?
-        mapFragment?.getMapAsync(callback)
+        mapFragment?.getMapAsync(onMapReadyCallback)
     }
 
     override fun onRequestPermissionsResult(

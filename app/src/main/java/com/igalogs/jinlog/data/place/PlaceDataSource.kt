@@ -9,4 +9,6 @@ interface PlaceDataSource {
 
     suspend fun getPlacesByLatLong(latitude: Double, longitude: Double): Result<List<Place>>
 
+    suspend fun getPlace(id:String): Result<Place>
+
 }

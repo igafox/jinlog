@@ -27,7 +27,7 @@ class FirestorePlaceDataSource(
     ): Result<List<Place>> = withContext(ioDispatcher) {
         return@withContext try {
 
-            val geohash = GeoHash.geoHashStringWithCharacterPrecision(latitude, longitude, 5)
+            val geohash = GeoHash.geoHashStringWithCharacterPrecision(latitude, longitude, 4)
 
             val startHash = geohash
             val lastChar = geohash.last()
@@ -46,4 +46,16 @@ class FirestorePlaceDataSource(
         }
     }
 
+    override suspend fun getPlace(id: String): Result<Place> = withContext(ioDispatcher) {
+        return@withContext try {
+            val query = placeCollection
+                .document(id)
+
+            var data = query.get().await().toObject(Place::class.java)!!
+
+            Result.Success(data)
+        } catch (e: Exception) {
+            Result.Error(e)
+        }
+    }
 }

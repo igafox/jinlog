@@ -10,4 +10,7 @@ class LogDataRepository(private var dataSource: LogDataSource) : LogRepository {
         return dataSource.getLogs(limit, startAtDate)
     }
 
+    override suspend fun getLogsByPlaceId(placeId: String): Result<List<Log>> {
+        return dataSource.getLogsByPlaceId(placeId)
+    }
 }

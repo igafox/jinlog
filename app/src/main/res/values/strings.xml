@@ -12,5 +12,9 @@
     <string name="title_home">ホーム</string>
     <string name="title_search">神社を探す</string>
     <string name="title_log">記録</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="empty_log">まだこの神社には誰も投稿していないようです\n神社を訪れて、思い出を記録しましょう！</string>
 
 </resources>

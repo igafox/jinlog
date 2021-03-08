@@ -28,4 +28,9 @@ class PlaceDataRepository(
 //        }
 
     }
+
+    override suspend fun getPlace(id: String): Result<Place> {
+        return dataSource.getPlace(id)
+    }
+
 }

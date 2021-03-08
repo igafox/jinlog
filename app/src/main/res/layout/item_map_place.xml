@@ -9,8 +9,10 @@
 
         <import type="com.igalogs.jinlog.util.StreetViewUrl" />
 
+        <variable name="listener" type="com.igalogs.jinlog.home.map.MapPlaceItemController.Listener" />
+
         <variable
-            name="data"
+            name="place"
             type="com.igalogs.jinlog.data.model.Place" />
 
     </data>
@@ -19,6 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:background="@color/white"
+        android:onClick="@{() -> listener.onClickPlace(place)}"
         android:padding="12dp">
 
         <FrameLayout
@@ -48,7 +51,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:scaleType="centerCrop"
-                app:imageUrl="@{StreetViewUrl.get(data.latitude,data.longitude)}"/>
+                app:imageUrl="@{StreetViewUrl.get(place.latitude,place.longitude)}"/>
 
         </FrameLayout>
 
@@ -59,7 +62,7 @@
             android:layout_marginLeft="8dp"
             android:layout_marginTop="8dp"
             android:includeFontPadding="false"
-            android:text="@{data.name}"
+            android:text="@{place.name}"
             android:textColor="@color/primary_text"
             android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@+id/image_frame"
@@ -71,7 +74,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:text="@{data.state + data.city + data.street}"
+            android:text="@{place.state + place.city + place.street}"
             app:layout_constraintStart_toStartOf="@+id/tvPlaceName"
             app:layout_constraintTop_toBottomOf="@+id/tvPlaceName"
             tools:text="福島県喜多方市" />

@@ -8,4 +8,6 @@ interface LogDataSource {
 
     suspend fun getLogs(limit: Int, startAtDate: Date?) : Result<List<Log>>
 
+    suspend fun getLogsByPlaceId(placeId: String): Result<List<Log>>
+
 }

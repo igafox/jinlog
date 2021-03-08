@@ -3,7 +3,7 @@ package com.igalogs.jinlog.home.map
 import com.airbnb.epoxy.TypedEpoxyController
 import com.igalogs.jinlog.ItemMapPlaceBindingModel_
 import com.igalogs.jinlog.data.model.Place
-import kotlin.random.Random
+import com.igalogs.jinlog.itemMapPlace
 
 class MapPlaceItemController : TypedEpoxyController<List<Place>>() {
 
@@ -11,7 +11,8 @@ class MapPlaceItemController : TypedEpoxyController<List<Place>>() {
 
     interface Listener {
 
-        fun onClick(log: Place)
+        fun onClickPlace(log: Place)
+
     }
 
     init {
@@ -21,14 +22,14 @@ class MapPlaceItemController : TypedEpoxyController<List<Place>>() {
     override fun buildModels(data: List<Place>?) {
         data ?: return
 
-        val item = data
-            .map { item ->
-                ItemMapPlaceBindingModel_()
-                    .id(Random.nextLong())
-                    .data(item)
-            }
+       data.forEach { place ->
+           itemMapPlace {
+               id(modelCountBuiltSoFar)
+               place(place)
+               listener(listener)
+           }
+       }
 
-        this.add(item)
     }
 
 }
